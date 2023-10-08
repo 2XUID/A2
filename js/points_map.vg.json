@@ -5,6 +5,11 @@
     "fontSize": 20,
     "anchor": "middle"
   },
+  "transform": [
+    {
+      "filter": "year(datum.datetime) > 0"
+    }
+  ],
   "data": {
     "name": "dataset",
     "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete_clean.csv"
@@ -287,7 +292,8 @@
           ]
         },
         {
-          "layer": [{
+          "layer": [
+            {
               "data": {
                 "url": "https://raw.githubusercontent.com/2XUID/A2/master/js/ne_110m_admin_0_countries.topojson",
                 "format": {
@@ -453,7 +459,7 @@
           "field": "datetime",
           "type": "temporal",
           "timeUnit": "year",
-          "sort": "increasing"
+          "sort": "descending"
         },
         "y": {
           "axis": {
@@ -509,7 +515,7 @@
       "tooltip": [{
           "field": "datetime",
           "title": "Year",
-          "type": "nominal",
+          "type": "temporal",
           "timeUnit": "year"
         },
         {
