@@ -459,12 +459,12 @@
           "field": "datetime",
           "type": "temporal",
           "timeUnit": "year",
-          "sort": "descending"
+          "sort": "increasing"
         },
         "y": {
           "axis": {
             "title": "Number of sightings",
-            "titleFontSize": 15
+            "titleFontSize": 10
           },
           "aggregate": "count",
           "type": "quantitative"
