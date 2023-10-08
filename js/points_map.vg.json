@@ -175,9 +175,6 @@
                   "filter": "datum.country == 'US'"
                 },
                 {
-                  "filter": "datum.us_region !== ''"
-                },
-                {
                   "filter": {
                     "selection": "shape_selection"
                   }
@@ -395,20 +392,23 @@
                 },
                 "tooltip": [{
                     "field": "country",
-                    "type": "nominal"
+                    "type": "nominal",
+                    "title": "Country"
                   },
                   {
                     "field": "state",
-                    "type": "nominal"
+                    "type": "nominal",
+                    "title": "State"
                   },
                   {
                     "field": "duration",
-                    "type": "quantitative"
+                    "type": "quantitative",
+                    "title": "Duration"
                   },
                   {
                     "field": "comments",
                     "type": "nominal",
-                    "title": "comments"
+                    "title": "Comments"
                   }
                 ]
               }
@@ -452,7 +452,7 @@
             "title": "Year",
             "titleFontSize": 15
           },
-          "field": "datatime",
+          "field": "datetime",
           "type": "temporal",
           "timeUnit": "year",
           "sort": "descending"
@@ -509,9 +509,9 @@
         "value": 0.5
       },
       "tooltip": [{
+          "field": "datetime",
           "title": "Year",
-          "field": "datatime",
-          "type": "temporal",
+          "type": "nominal",
           "timeUnit": "year"
         },
         {
