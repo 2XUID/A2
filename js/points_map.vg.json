@@ -455,7 +455,7 @@
           "field": "datetime",
           "type": "temporal",
           "timeUnit": "year",
-          "sort": "descending"
+          "sort": "increasing"
         },
         "y": {
           "axis": {
