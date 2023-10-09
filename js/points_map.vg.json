@@ -1,10 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "UFO sightings around the world",
-    "fontSize": 20,
-    "anchor": "middle"
-  },
+  "width": 800,
+  "height": 400,
   "transform": [
     {
       "filter": "year(datum.datetime) > 0"
@@ -301,7 +298,7 @@
                   "feature": "ne_110m_admin_0_countries"
                 }
               },
-              "width": 900,
+              "width": 650,
               "height": 650,
               "mark": {
                 "type": "geoshape",
@@ -356,7 +353,7 @@
               "data": {
                 "name": "dataset"
               },
-              "width": 950,
+              "width": 650,
               "height": 650,
               "mark": {
                 "type": "circle",
@@ -445,7 +442,7 @@
         }
       },
       "height": 100,
-      "width": 1100,
+      "width": 800,
       "mark": {
         "type": "bar",
         "cursor": "pointer"
