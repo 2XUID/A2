@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A word cloud visualization depicting Vega research paper abstracts.",
+    "width": 800,
+    "height": 400,
+    "padding": 0,
+
+    "data": [{
+        "name": "table",
+        "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/comments.csv",
+        "format": {
+            "type": "csv"
+        },
+        "transform": [{
+                "type": "countpattern",
+                "field": "data",
+                "case": "upper",
+                "pattern": "[\\w']{3,}",
+                "stopwords": "(cylinder|light|circle|sphere|disk|fireball|other|chevron|unknown|formation|triangle|changing|egg|oval|diamond|cigar|flash|rectangle|teardrop|cone|cross|delta)"
+            },
+            {
+                "type": "formula",
+                "as": "angle",
+                "expr": "[-45, 0, 45][~~(random() * 3)]"
+            },
+            {
+                "type": "formula",
+                "as": "weight",
+                "expr": "if(datum.text=='VEGA', 600, 300)"
+            }
+        ]
+    }],
+
+    "scales": [{
+        "name": "color",
+        "type": "ordinal",
+        "domain": {
+            "data": "table",
+            "field": "comments"
+        },
+        "range": ["#d5a928", "#652c90", "#939597"]
+    }],
+
+    "marks": [{
+        "type": "text",
+        "from": {
+            "data": "table"
+        },
+        "encode": {
+            "enter": {
+                "text": {
+                    "field": "comments"
+                },
+                "align": {
+                    "value": "center"
+                },
+                "baseline": {
+                    "value": "alphabetic"
+                },
+                "fill": {
+                    "scale": "color",
+                    "field": "comments"
+                }
+            },
+            "update": {
+                "fillOpacity": {
+                    "value": 1
+                }
+            },
+            "hover": {
+                "fillOpacity": {
+                    "value": 0.5
+                }
+            }
+        },
+        "transform": [{
+            "type": "wordcloud",
+            "size": [800, 400],
+            "text": {
+                "field": "comments"
+            },
+            "rotate": {
+                "field": "datum.angle"
+            },
+            "font": "Helvetica Neue, Arial",
+            "fontSize": {
+                "field": "datum.count"
+            },
+            "fontWeight": {
+                "field": "datum.weight"
+            },
+            "fontSizeRange": [12, 56],
+            "padding": 2
+        }]
+    }]
+}
