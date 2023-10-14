@@ -33,7 +33,11 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <!-- chart input -->
   <script src="points_map.vg.json"></script>
+  <script src="line_chart_month.vg.json"></script>
+  <script src="line_chart_time.vg.json"></script>
+  <script src="wordcloud.vg.json"></script>
 </head>
 
 <body id="page-top">
@@ -57,7 +61,7 @@
             <a class="nav-link js-scroll" href="#about">Map</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#service">xxx</a>
+            <a class="nav-link js-scroll" href="#service">Time-based Trends</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#work">xxx</a>
@@ -94,12 +98,6 @@
       <div class="row">
         <div class="col-sm-12" >
           <div class="title-box text-center">
-            <h3 class="title-b">
-              UFO Sightings Around The World
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
             <div class="line-mf"></div>
           </div>
           <div class="box-shadow-full" >
@@ -142,282 +140,109 @@
     </div>
   </section>
 
-  <!-- <section id="service" class="services-mf route">
+  <section id="service" class="services-mf route">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="title-box text-center">
-            <h3 class="title-a">
-              Services
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
             <div class="line-mf"></div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-monitor"></i></span>
+          <div class="box-shadow-full" >
+            <div id="line_chart_month"style="width:800px; margin:0 auto;">
+              <script type="text/javascript">
+                var spec2 = "js/line_chart_month.vg.json";
+                vegaEmbed('#line_chart_month', spec2, {
+                  "actions": false
+                }).then(function (result) {}).catch(console.error);
+              </script>
             </div>
-            <div class="service-content">
-              <h2 class="s-title">Web Design</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
+            <div id="line_chart_time"style="width:800px; margin:0 auto;">
+              <script type="text/javascript">
+                var spec2 = "js/line_chart_time.vg.json";
+                vegaEmbed('#line_chart_time', spec2, {
+                  "actions": false
+                }).then(function (result) {}).catch(console.error);
+              </script>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code-working"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Web Development</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-camera"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Photography</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Responsive Design</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-paintbrush"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Graphic Design</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-stats-bars"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Marketing Services</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
+            <div class="row" >
+              <div class="col-md-6" >
+                <div class="row" style="width:800px; margin:0 auto;">
+                  <div class="col-sm-6 col-md-7" >
+                    <div class="about-info" >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="about-me pt-4 pt-md-0">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Time-based Trends
+                      </h5>
+                    </div>
+                    <p class="lead" style="width:1000px; margin:0 auto;">
+                      Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id
+                      imperdiet et, porttitor
+                      at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla
+                      porttitor accumsan tincidunt.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
   <!--/ Section Services End /-->
 
   <!--/ Section Portfolio Star /-->
-  <!-- <section id="work" class="portfolio-mf sect-pt4 route">
+  <section id="work" class="portfolio-mf sect-pt4 route">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="title-box text-center">
-            <h3 class="title-a">
-              Portfolio
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
             <div class="line-mf"></div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-1.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-1.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Lorem impsum dolor</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
+          <div class="box-shadow-full" >
+            <div id="wordcloud"style="width:800px; margin:0 auto;">
+              <script type="text/javascript">
+                var spec2 = "js/wordcloud.vg.json";
+                vegaEmbed('#wordcloud', spec2, {
+                  "actions": false
+                }).then(function (result) {}).catch(console.error);
+              </script>
+            </div>
+            <div class="row" >
+              <div class="col-md-6" >
+                <div class="row" style="width:800px; margin:0 auto;">
+                  <div class="col-sm-6 col-md-7" >
+                    <div class="about-info" >
                     </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-2.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-2.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Loreda Cuno Nere</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
+                <div class="col-md-6">
+                  <div class="about-me pt-4 pt-md-0">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Word Cloud
+                      </h5>
                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
+                    <p class="lead" style="width:1000px; margin:0 auto;">
+                      Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id
+                      imperdiet et, porttitor
+                      at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla
+                      porttitor accumsan tincidunt.
+                    </p>
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-3.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-3.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Mavrito Lana Dere</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-4.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-4.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Bindo Laro Cado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-5.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-5.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Lena Mado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-6.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-6.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Big Bang</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section> -->
+  </section>
   <!--/ Section Portfolio End /-->
 
 

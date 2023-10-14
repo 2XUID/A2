@@ -1,0 +1,24 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete.csv"
+    },
+    "width": 800,
+    "height": 200,
+    "title": {
+        "text": "Number of sightings vs Time",
+        "fontSize": 18
+    },
+    "mark": "line",
+    "encoding": {
+        "x": {
+            "timeUnit": "utchours",
+            "field": "datetime",
+            "type": "temporal",
+            "title": "Time"
+        },
+        "y": {
+            "aggregate": "count"
+        }
+    }
+}
