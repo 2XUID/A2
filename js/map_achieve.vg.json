@@ -304,7 +304,19 @@
                         "projection": {
                             "type": "equalEarth"
                         }
-                    },
+                    },{
+                        "data": {
+                          "url": "https://raw.githubusercontent.com/2XUID/A2/master/js/ne_110m_ocean.topojson",
+                          "format": {
+                            "type": "topojson",
+                            "feature": "oceans"
+                          }
+                        },
+                        "mark": {
+                          "type": "geoshape",
+                          "fill": "#cee5fc"
+                        }
+                      },
                     {
                         "data": {
                             "graticule": {
