@@ -3,7 +3,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete.csv"
     },
-    "width": 800,
+    "width": 900,
     "height": 200,
     "title": {
         "text": "Number of sightings vs Month",

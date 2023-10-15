@@ -49,7 +49,7 @@
                 "data": "table",
                 "field": "amount"
             },
-            "range": [2999, 3002]
+            "range": [3500,3504]
         },
         {
             "name": "color",
