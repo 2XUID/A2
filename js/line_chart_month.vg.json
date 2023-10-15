@@ -18,6 +18,8 @@
             "title": "Date (Month)"
         },
         "y": {
+            "field": "record",
+            "type": "quantitative",
             "aggregate": "count"
         }
     }

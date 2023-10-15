@@ -11,6 +11,19 @@
     },
     "mark": "line",
     "encoding": {
+        "tooltip": [
+            {
+                "timeUnit": "utchours",
+                "field": "datetime",
+                "type": "temporal",
+                "title": "Time"
+            },
+            {
+                "field": "record",
+                "type": "quantitative",
+                "aggregate": "count"
+            }
+        ],
         "x": {
             "timeUnit": "utchours",
             "field": "datetime",
@@ -18,6 +31,8 @@
             "title": "Time"
         },
         "y": {
+            "field": "record",
+            "type": "quantitative",
             "aggregate": "count"
         }
     }
