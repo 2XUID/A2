@@ -13,15 +13,14 @@
     "name": "year_selection",
     "value": 0,
     "bind": {
-        "input": "range",
-        "min": 2010,
-        "max": 2020,
-        "step": 1,
-        "name": "Year:  "
+      "input": "range",
+      "min": 2010,
+      "max": 2020,
+      "step": 1,
+      "name": "Year:  "
     }
-}],
-  "vconcat": [
-    {
+  }],
+  "vconcat": [{
       "selection": {
         "shape_selection": {
           "type": "multi",
