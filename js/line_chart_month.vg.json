@@ -1,26 +1,68 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-        "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete.csv"
-    },
     "width": 900,
     "height": 200,
-    "title": {
-        "text": "Number of sightings vs Month",
-        "fontSize": 18
+    "data": {
+        "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete_clean.csv"
     },
-    "mark": "line",
     "encoding": {
         "x": {
             "timeUnit": "month",
             "field": "datetime",
             "type": "temporal",
-            "title": "Date (Month)"
+            "title": "Month"
         },
-        "y": {
-            "field": "record",
-            "type": "quantitative",
-            "aggregate": "count"
+        "tooltip": [{
+                "timeUnit": "month",
+                "field": "datetime",
+                "type": "temporal",
+                "title": "Month"
+            },
+            {
+                "field": "record",
+                "type": "quantitative",
+                "aggregate": "count"
+            }
+        ]
+    },
+    "layer": [{
+        "mark": {
+            "type": "line",
+            "color": "blue"
+        },
+        "encoding": {
+            "y": {
+                "field": "record",
+                "type": "quantitative",
+                "aggregate": "count",
+                "scale": {
+                    "domain": [0, 1400]
+                }
+            }
+        }
+    }, {
+        "mark": "rule",
+        "params": [{
+            "name": "hover",
+            "select": {
+                "type": "point",
+                "on": "mouseover"
+            }
+        }],
+        "encoding": {
+            "color": {
+                "condition": {
+                    "param": "hover",
+                    "empty": false,
+                    "value": "black"
+                },
+                "value": "transparent"
+            }
+        }
+    }],
+    "config": {
+        "axisY": {
+            "minExtent": 30
         }
     }
 }

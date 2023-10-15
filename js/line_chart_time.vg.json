@@ -1,18 +1,18 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-        "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete.csv"
-    },
     "width": 900,
     "height": 200,
-    "title": {
-        "text": "Number of sightings vs Time",
-        "fontSize": 18
+    "data": {
+        "url": "https://raw.githubusercontent.com/2XUID/A2/master/data/complete_clean.csv"
     },
-    "mark": "line",
     "encoding": {
-        "tooltip": [
-            {
+        "x": {
+            "timeUnit": "utchours",
+            "field": "datetime",
+            "type": "temporal",
+            "title": "Time"
+        },
+        "tooltip": [{
                 "timeUnit": "utchours",
                 "field": "datetime",
                 "type": "temporal",
@@ -23,17 +23,46 @@
                 "type": "quantitative",
                 "aggregate": "count"
             }
-        ],
-        "x": {
-            "timeUnit": "utchours",
-            "field": "datetime",
-            "type": "temporal",
-            "title": "Time"
+        ]
+    },
+    "layer": [{
+        "mark": {
+            "type": "line",
+            "color": "blue"
         },
-        "y": {
-            "field": "record",
-            "type": "quantitative",
-            "aggregate": "count"
+        "encoding": {
+            "y": {
+                "field": "record",
+                "type": "quantitative",
+                "aggregate": "count",
+                "scale": {
+                    "domain": [0, 1100]
+                }
+            }
+        }
+    }, {
+        "mark": "rule",
+        "params": [{
+            "name": "hover",
+            "select": {
+                "type": "point",
+                "on": "mouseover"
+            }
+        }],
+        "encoding": {
+            "color": {
+                "condition": {
+                    "param": "hover",
+                    "empty": false,
+                    "value": "black"
+                },
+                "value": "transparent"
+            }
+        }
+    }],
+    "config": {
+        "axisY": {
+            "minExtent": 30
         }
     }
 }
