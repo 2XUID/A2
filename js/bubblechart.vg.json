@@ -28,7 +28,7 @@
         },
         {
             "name": "gravityY",
-            "value": 0.1,
+            "value": 0.92,
             "bind": {
                 "input": "range",
                 "min": 0,
@@ -49,7 +49,7 @@
                 "data": "table",
                 "field": "amount"
             },
-            "range": [3500,3504]
+            "range": [3497,3505]
         },
         {
             "name": "color",
